@@ -1,7 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://bxr4aaam0oro4"]
+[gd_scene load_steps=7 format=3 uid="uid://bxr4aaam0oro4"]
 
 [ext_resource type="PackedScene" uid="uid://ncf0pekbgv88" path="res://SCENES/sapoConcho2.tscn" id="1_xh1h4"]
 [ext_resource type="Script" uid="uid://cbascr2dp7x3d" path="res://SCENES/sapo_concho_2.gd" id="2_ac0l5"]
+[ext_resource type="Texture2D" uid="uid://b3i2m5cxifj3u" path="res://ASSETS/bg layer1-sky.png" id="3_0u8pi"]
+[ext_resource type="Texture2D" uid="uid://c6ncuchxqsy4c" path="res://ASSETS/bglayer3-cerrolastetas.png" id="4_ys6xq"]
+[ext_resource type="Texture2D" uid="uid://crokxj3sk03k" path="res://ASSETS/layer4-plaintains.png" id="5_df0lc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ac0l5"]
 size = Vector2(471.343, 31.143)
@@ -17,3 +20,29 @@ script = ExtResource("2_ac0l5")
 position = Vector2(-0.999996, 18.8644)
 scale = Vector2(0.25641, 0.25641)
 shape = SubResource("RectangleShape2D_ac0l5")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="Sky Layer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.01, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Sky Layer"]
+position = Vector2(213, 368)
+scale = Vector2(0.575174, 0.560351)
+texture = ExtResource("3_0u8pi")
+
+[node name="Mountain Layer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.03, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Mountain Layer"]
+position = Vector2(211.75, 366.5)
+scale = Vector2(0.590972, 0.552344)
+texture = ExtResource("4_ys6xq")
+
+[node name="Tree Layer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.05, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Tree Layer"]
+position = Vector2(212.375, 371.25)
+scale = Vector2(0.579514, 0.552734)
+texture = ExtResource("5_df0lc")
