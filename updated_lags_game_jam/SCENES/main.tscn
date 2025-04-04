@@ -13,7 +13,7 @@ position = Vector2(214, 643)
 scale = Vector2(3.5, 3.5)
 script = ExtResource("2_ac0l5")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="CharacterBody2D"]
+[node name="groundPlaceHoulder" type="CollisionShape2D" parent="CharacterBody2D"]
 position = Vector2(-0.999996, 18.8644)
 scale = Vector2(0.25641, 0.25641)
 shape = SubResource("RectangleShape2D_ac0l5")
