@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bxr4aaam0oro4"]
+
+[ext_resource type="PackedScene" uid="uid://ncf0pekbgv88" path="res://SCENES/sapoConcho2.tscn" id="1_xh1h4"]
+[ext_resource type="Script" uid="uid://cbascr2dp7x3d" path="res://SCENES/sapo_concho_2.gd" id="2_ac0l5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ac0l5"]
+size = Vector2(471.343, 31.143)
+
+[node name="Main" type="Node"]
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_xh1h4")]
+position = Vector2(214, 643)
+scale = Vector2(3.5, 3.5)
+script = ExtResource("2_ac0l5")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(-0.999996, 18.8644)
+scale = Vector2(0.25641, 0.25641)
+shape = SubResource("RectangleShape2D_ac0l5")

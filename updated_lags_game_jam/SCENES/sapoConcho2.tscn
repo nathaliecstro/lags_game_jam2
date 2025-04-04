@@ -1,0 +1,53 @@
+[gd_scene load_steps=7 format=3 uid="uid://ncf0pekbgv88"]
+
+[ext_resource type="Texture2D" uid="uid://ck3c46ynpkqhp" path="res://ASSETS/sapoConchoFrames.png" id="1_ssj7u"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_seyka"]
+atlas = ExtResource("1_ssj7u")
+region = Rect2(0, 0, 85, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ovf04"]
+atlas = ExtResource("1_ssj7u")
+region = Rect2(85, 0, 85, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ebxqu"]
+atlas = ExtResource("1_ssj7u")
+region = Rect2(170, 0, 85, 55)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v4lbc"]
+animations = [{
+"frames": [{
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_seyka")
+}, {
+"duration": 2.5,
+"texture": SubResource("AtlasTexture_ovf04")
+}],
+"loop": true,
+"name": &"sapo sleeping",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ebxqu")
+}],
+"loop": true,
+"name": &"sapoGameOver",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s4d1v"]
+size = Vector2(45, 9)
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_v4lbc")
+animation = &"sapo sleeping"
+autoplay = "sapo sleeping"
+frame_progress = 0.504243
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 6)
+shape = SubResource("RectangleShape2D_s4d1v")
