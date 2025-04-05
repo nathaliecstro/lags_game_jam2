@@ -1,12 +1,12 @@
 [gd_scene load_steps=11 format=3 uid="uid://bxr4aaam0oro4"]
 
 [ext_resource type="PackedScene" uid="uid://ncf0pekbgv88" path="res://SCENES/sapoConcho2.tscn" id="1_xh1h4"]
-[ext_resource type="Script" uid="uid://dbtl1cllirq5q" path="res://SCENES/main.gd" id="1_ys6xq"]
+[ext_resource type="Script" path="res://SCENES/main.gd" id="1_ys6xq"]
 [ext_resource type="PackedScene" uid="uid://c1wgofxcktlku" path="res://SCENES/food_1.tscn" id="2_df0lc"]
-[ext_resource type="Texture2D" uid="uid://b3i2m5cxifj3u" path="res://ASSETS/bg layer1-sky.png" id="3_0u8pi"]
+[ext_resource type="Texture2D" uid="uid://qyr1ru25nyj8" path="res://ASSETS/skylayer.png" id="3_0u8pi"]
 [ext_resource type="PackedScene" uid="uid://cuylvuuspke1r" path="res://SCENES/food_2.tscn" id="3_df0lc"]
-[ext_resource type="Texture2D" uid="uid://c6ncuchxqsy4c" path="res://ASSETS/bglayer3-cerrolastetas.png" id="4_ys6xq"]
-[ext_resource type="Texture2D" uid="uid://crokxj3sk03k" path="res://ASSETS/layer4-plaintains.png" id="5_df0lc"]
+[ext_resource type="Texture2D" uid="uid://deev7e3qpl18i" path="res://ASSETS/cerrolastetas(fix).png" id="4_ys6xq"]
+[ext_resource type="Texture2D" uid="uid://d006kvmmvm6n1" path="res://ASSETS/plantainslayer(fix).png" id="5_0u8pi"]
 
 [sub_resource type="Curve2D" id="Curve2D_h2jjw"]
 _data = {
@@ -36,25 +36,25 @@ metadata/_edit_group_ = true
 motion_scale = Vector2(0.01, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Sky Layer"]
-position = Vector2(209.531, 362.812)
-scale = Vector2(0.584809, 0.568457)
+position = Vector2(210.5, 362)
+scale = Vector2(0.411133, 0.47526)
 texture = ExtResource("3_0u8pi")
 
 [node name="Mountain Layer" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2(0.03, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Mountain Layer"]
-position = Vector2(211.75, 366.5)
-scale = Vector2(0.590972, 0.552344)
+position = Vector2(212, 244)
+scale = Vector2(1.00238, 1.00556)
 texture = ExtResource("4_ys6xq")
 
 [node name="Tree Layer" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2(0.05, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Tree Layer"]
-position = Vector2(211.313, 370.125)
-scale = Vector2(0.586979, 0.552929)
-texture = ExtResource("5_df0lc")
+position = Vector2(209.5, 400.5)
+scale = Vector2(1.01667, 1.00139)
+texture = ExtResource("5_0u8pi")
 
 [node name="FoodTimer" type="Timer" parent="."]
 wait_time = 0.5

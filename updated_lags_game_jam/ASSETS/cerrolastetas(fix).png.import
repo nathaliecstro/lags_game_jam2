@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://crokxj3sk03k"
-path="res://.godot/imported/layer4-plaintains.png-aac9891a1aebf70452bc63ae9e7893e3.ctex"
+uid="uid://deev7e3qpl18i"
+path="res://.godot/imported/cerrolastetas(fix).png-8401d170df53f28dc4dcb34f0237e3c1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ASSETS/layer4-plaintains.png"
-dest_files=["res://.godot/imported/layer4-plaintains.png-aac9891a1aebf70452bc63ae9e7893e3.ctex"]
+source_file="res://ASSETS/cerrolastetas(fix).png"
+dest_files=["res://.godot/imported/cerrolastetas(fix).png-8401d170df53f28dc4dcb34f0237e3c1.ctex"]
 
 [params]
 

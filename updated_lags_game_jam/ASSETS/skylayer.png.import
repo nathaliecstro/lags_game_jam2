@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c6ncuchxqsy4c"
-path="res://.godot/imported/bglayer3-cerrolastetas.png-4dc65a2407d28e190ee39c682d70e6dd.ctex"
+uid="uid://qyr1ru25nyj8"
+path="res://.godot/imported/skylayer.png-4b83e7879eb144b4514304aa59f8385b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ASSETS/bglayer3-cerrolastetas.png"
-dest_files=["res://.godot/imported/bglayer3-cerrolastetas.png-4dc65a2407d28e190ee39c682d70e6dd.ctex"]
+source_file="res://ASSETS/skylayer.png"
+dest_files=["res://.godot/imported/skylayer.png-4b83e7879eb144b4514304aa59f8385b.ctex"]
 
 [params]
 
