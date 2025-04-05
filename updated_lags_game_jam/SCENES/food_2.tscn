@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://cuylvuuspke1r"]
+
+[ext_resource type="Script" uid="uid://daounvmxnh1mo" path="res://SCENES/food_2.gd" id="1_2ys1b"]
+[ext_resource type="Texture2D" uid="uid://dys5xospbgjcd" path="res://ASSETS/empanadilla.png" id="2_vqd3o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tabs3"]
+size = Vector2(34, 37)
+
+[node name="RigidBody2D" type="RigidBody2D"]
+collision_mask = 0
+script = ExtResource("1_2ys1b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, -2.5)
+shape = SubResource("RectangleShape2D_tabs3")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-4, -4.5)
+scale = Vector2(0.941176, 1.07273)
+texture = ExtResource("2_vqd3o")
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

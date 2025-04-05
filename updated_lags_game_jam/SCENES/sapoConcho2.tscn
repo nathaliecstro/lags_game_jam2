@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://ncf0pekbgv88"]
+[gd_scene load_steps=8 format=3 uid="uid://ncf0pekbgv88"]
 
+[ext_resource type="Script" uid="uid://cbascr2dp7x3d" path="res://SCENES/sapo_concho_2.gd" id="1_seyka"]
 [ext_resource type="Texture2D" uid="uid://ck3c46ynpkqhp" path="res://ASSETS/sapoConchoFrames.png" id="1_ssj7u"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_seyka"]
@@ -37,9 +38,12 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s4d1v"]
-size = Vector2(45, 9)
+size = Vector2(52, 10.5)
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_seyka")
+
+[node name="Area2D" type="Area2D" parent="."]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
@@ -49,5 +53,7 @@ autoplay = "sapo sleeping"
 frame_progress = 0.307956
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, 6)
+position = Vector2(-2, 5.25)
 shape = SubResource("RectangleShape2D_s4d1v")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

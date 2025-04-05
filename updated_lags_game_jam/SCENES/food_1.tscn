@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://c1wgofxcktlku"]
+
+[ext_resource type="Texture2D" uid="uid://w31xmr5ev01v" path="res://ASSETS/pastelesConOSin1.png" id="1_k5bfh"]
+[ext_resource type="Script" uid="uid://do7bqj8kdwl7t" path="res://SCENES/food_1.gd" id="1_tabs3"]
+[ext_resource type="Texture2D" uid="uid://ckbdvtrnlf8ej" path="res://ASSETS/pastelesConOSin2.png" id="2_tabs3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tabs3"]
+size = Vector2(34, 37)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p1uc8"]
+animations = [{
+"frames": [{
+"duration": 4.0,
+"texture": ExtResource("1_k5bfh")
+}, {
+"duration": 4.0,
+"texture": ExtResource("2_tabs3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="RigidBody2D" type="RigidBody2D"]
+texture_filter = 1
+collision_mask = 0
+script = ExtResource("1_tabs3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, -2.5)
+shape = SubResource("RectangleShape2D_tabs3")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_p1uc8")
+frame_progress = 0.960112
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

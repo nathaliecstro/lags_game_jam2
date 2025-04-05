@@ -1,25 +1,34 @@
-[gd_scene load_steps=7 format=3 uid="uid://bxr4aaam0oro4"]
+[gd_scene load_steps=11 format=3 uid="uid://bxr4aaam0oro4"]
 
 [ext_resource type="PackedScene" uid="uid://ncf0pekbgv88" path="res://SCENES/sapoConcho2.tscn" id="1_xh1h4"]
-[ext_resource type="Script" uid="uid://cbascr2dp7x3d" path="res://SCENES/sapo_concho_2.gd" id="2_ac0l5"]
+[ext_resource type="Script" uid="uid://dbtl1cllirq5q" path="res://SCENES/main.gd" id="1_ys6xq"]
+[ext_resource type="PackedScene" uid="uid://c1wgofxcktlku" path="res://SCENES/food_1.tscn" id="2_df0lc"]
 [ext_resource type="Texture2D" uid="uid://b3i2m5cxifj3u" path="res://ASSETS/bg layer1-sky.png" id="3_0u8pi"]
+[ext_resource type="PackedScene" uid="uid://cuylvuuspke1r" path="res://SCENES/food_2.tscn" id="3_df0lc"]
 [ext_resource type="Texture2D" uid="uid://c6ncuchxqsy4c" path="res://ASSETS/bglayer3-cerrolastetas.png" id="4_ys6xq"]
 [ext_resource type="Texture2D" uid="uid://crokxj3sk03k" path="res://ASSETS/layer4-plaintains.png" id="5_df0lc"]
+
+[sub_resource type="Curve2D" id="Curve2D_h2jjw"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -1, 2, 0, 0, 0, 0, 5.10821, 3.74605, 0, 0, 0, 0, 188.007, 3.42952, 0, 0, 0, 0, 406, 3.91894, 0, 0, 0, 0, 207.849, 3.05925, 0, 0, 0, 0, 2, 2.17522, 0, 0, 0, 0, 409, 1.71812, 0, 0, 0, 0, -1, 2)
+}
+point_count = 8
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ys6xq"]
+size = Vector2(121, 735)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ac0l5"]
 size = Vector2(471.343, 15.5998)
 
 [node name="Main" type="Node"]
+script = ExtResource("1_ys6xq")
+mob_scene = ExtResource("2_df0lc")
+mob1_scene = ExtResource("3_df0lc")
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_xh1h4")]
 position = Vector2(214, 643)
 scale = Vector2(3.5, 3.5)
-script = ExtResource("2_ac0l5")
-
-[node name="groundPlaceHoulder" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(-0.999996, 20.8571)
-scale = Vector2(0.25641, 0.25641)
-shape = SubResource("RectangleShape2D_ac0l5")
+metadata/_edit_group_ = true
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
@@ -46,3 +55,49 @@ motion_scale = Vector2(0.05, 0)
 position = Vector2(211.313, 370.125)
 scale = Vector2(0.586979, 0.552929)
 texture = ExtResource("5_df0lc")
+
+[node name="FoodTimer" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="StartTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="ScoreTimer" type="Timer" parent="."]
+
+[node name="StartPos" type="Marker2D" parent="."]
+position = Vector2(211, 664)
+
+[node name="FoodPath" type="Path2D" parent="."]
+position = Vector2(-1.96829, 16.0074)
+scale = Vector2(1.03171, -2.04326)
+curve = SubResource("Curve2D_h2jjw")
+
+[node name="FoodFollow2D" type="PathFollow2D" parent="FoodPath"]
+position = Vector2(-1, 2)
+rotation = 0.278428
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(-61, 360)
+disable_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_ys6xq")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="StaticBody2D"]
+position = Vector2(-61, 360)
+disable_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/StaticBody2D"]
+position = Vector2(603, -363)
+shape = SubResource("RectangleShape2D_ys6xq")
+
+[node name="groundPlaceHoulder" type="CollisionShape2D" parent="."]
+position = Vector2(210.5, 716)
+scale = Vector2(0.897435, 0.897435)
+shape = SubResource("RectangleShape2D_ac0l5")
+
+[connection signal="hit" from="CharacterBody2D" to="." method="game_over"]
+[connection signal="timeout" from="FoodTimer" to="." method="_on_food_timer_timeout"]
+[connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]
+[connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]
