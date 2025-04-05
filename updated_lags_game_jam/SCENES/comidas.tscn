@@ -1,0 +1,75 @@
+[gd_scene load_steps=10 format=3 uid="uid://d24i4wgatnrwg"]
+
+[ext_resource type="Texture2D" uid="uid://dys5xospbgjcd" path="res://ASSETS/empanadilla.png" id="1_hr3m1"]
+[ext_resource type="Script" uid="uid://buyngibm4plqb" path="res://SCENES/comidas.gd" id="1_w7hd5"]
+[ext_resource type="Texture2D" uid="uid://w31xmr5ev01v" path="res://ASSETS/pastelesConOSin1.png" id="2_w7hd5"]
+[ext_resource type="Texture2D" uid="uid://ckbdvtrnlf8ej" path="res://ASSETS/pastelesConOSin2.png" id="3_spegm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_igdhj"]
+atlas = ExtResource("1_hr3m1")
+region = Rect2(0, 0, 85, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i4t86"]
+atlas = ExtResource("2_w7hd5")
+region = Rect2(0, 0, 85, 55)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yp5qk"]
+atlas = ExtResource("3_spegm")
+region = Rect2(0, 0, 85, 55)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y663u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_igdhj")
+}],
+"loop": true,
+"name": &"empanadilla",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"malta india",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"mofongo",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_i4t86")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_yp5qk")
+}],
+"loop": true,
+"name": &"pasteles",
+"speed": 3.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wnad7"]
+height = 59.7113
+
+[node name="comidasPR" type="RigidBody2D"]
+collision_mask = 0
+script = ExtResource("1_w7hd5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(1.7, 1.7)
+sprite_frames = SubResource("SpriteFrames_y663u")
+animation = &"pasteles"
+frame = 1
+frame_progress = 0.359317
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3)
+rotation = 2.06822
+shape = SubResource("CapsuleShape2D_wnad7")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(0, -2)
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
