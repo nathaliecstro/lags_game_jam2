@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://crokxj3sk03k" path="res://ASSETS/layer4-plaintains.png" id="5_df0lc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ac0l5"]
-size = Vector2(471.343, 31.143)
+size = Vector2(471.343, 15.5998)
 
 [node name="Main" type="Node"]
 
@@ -17,7 +17,7 @@ scale = Vector2(3.5, 3.5)
 script = ExtResource("2_ac0l5")
 
 [node name="groundPlaceHoulder" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(-0.999996, 18.8644)
+position = Vector2(-0.999996, 20.8571)
 scale = Vector2(0.25641, 0.25641)
 shape = SubResource("RectangleShape2D_ac0l5")
 
@@ -27,8 +27,8 @@ shape = SubResource("RectangleShape2D_ac0l5")
 motion_scale = Vector2(0.01, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Sky Layer"]
-position = Vector2(213, 368)
-scale = Vector2(0.575174, 0.560351)
+position = Vector2(209.531, 362.812)
+scale = Vector2(0.584809, 0.568457)
 texture = ExtResource("3_0u8pi")
 
 [node name="Mountain Layer" type="ParallaxLayer" parent="ParallaxBackground"]
@@ -43,6 +43,6 @@ texture = ExtResource("4_ys6xq")
 motion_scale = Vector2(0.05, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Tree Layer"]
-position = Vector2(212.375, 371.25)
-scale = Vector2(0.579514, 0.552734)
+position = Vector2(211.313, 370.125)
+scale = Vector2(0.586979, 0.552929)
 texture = ExtResource("5_df0lc")
