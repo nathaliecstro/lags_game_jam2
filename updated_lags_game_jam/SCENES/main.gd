@@ -12,6 +12,8 @@ func new_game():
 	$HUD.update_score(score)
 	$Sapo.start($StartPos.position)
 	$HUD.show_message("Get Ready")
+	get_tree().call_group("mobs", "queue_free")
+	$Sapo/AnimatedSprite2D.play("sapo sleeping")
 	
 func game_over():
 	$ScoreTimer.stop()

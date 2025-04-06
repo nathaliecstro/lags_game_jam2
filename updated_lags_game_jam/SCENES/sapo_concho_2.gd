@@ -24,9 +24,9 @@ func _process(delta):
 	position += velocity * delta
 	var sprite_half_size = Vector2(185, 55) / 2 # (width, height) of one frame
 	position = position.clamp(sprite_half_size, screen_size - sprite_half_size)
-
+	
 func _on_body_entered(_body):
-	hide() # Player disappears after being hit.
+	$AnimatedSprite2D.play("sapoGameOver") # Play the animation when hit
 	hit.emit()
 	$CollisionShape2D.set_deferred("disabled", true)
 
