@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bxr4aaam0oro4"]
+[gd_scene load_steps=12 format=3 uid="uid://bxr4aaam0oro4"]
 
 [ext_resource type="PackedScene" uid="uid://ncf0pekbgv88" path="res://SCENES/sapoConcho2.tscn" id="1_xh1h4"]
 [ext_resource type="Script" path="res://SCENES/main.gd" id="1_ys6xq"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cuylvuuspke1r" path="res://SCENES/food_2.tscn" id="3_df0lc"]
 [ext_resource type="Texture2D" uid="uid://deev7e3qpl18i" path="res://ASSETS/cerrolastetas(fix).png" id="4_ys6xq"]
 [ext_resource type="Texture2D" uid="uid://d006kvmmvm6n1" path="res://ASSETS/plantainslayer(fix).png" id="5_0u8pi"]
+[ext_resource type="AudioStream" uid="uid://cbwjy7rkdnb3m" path="res://ASSETS/8_bit_memory_indie_proj_2_ma.mp3" id="8_h2jjw"]
 
 [sub_resource type="Curve2D" id="Curve2D_h2jjw"]
 _data = {
@@ -96,6 +97,10 @@ shape = SubResource("RectangleShape2D_ys6xq")
 position = Vector2(210.5, 716)
 scale = Vector2(0.897435, 0.897435)
 shape = SubResource("RectangleShape2D_ac0l5")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_h2jjw")
+autoplay = true
 
 [connection signal="hit" from="CharacterBody2D" to="." method="game_over"]
 [connection signal="timeout" from="FoodTimer" to="." method="_on_food_timer_timeout"]
