@@ -5,15 +5,20 @@ extends Node
 
 var score
 
-func game_over():
-	$ScoreTimer.stop()
-	$FoodTimer.stop()
 
 func new_game():
 	score = 0
-	$CharacterBody2D.start($StartPos.position)
 	$StartTimer.start()
+	$HUD.update_score(score)
+	$Sapo.start($StartPos.position)
+	$HUD.show_message("Get Ready")
+	get_tree().call_group("mobs", "queue_free")
+	$Sapo/AnimatedSprite2D.play("sapo sleeping")
 	
+func game_over():
+	$ScoreTimer.stop()
+	$FoodTimer.stop()
+	$HUD.show_game_over()
 	
 func _on_food_timer_timeout():
 	# Randomly pick a food scene
@@ -45,11 +50,11 @@ func _on_food_timer_timeout():
 
 func _on_score_timer_timeout():
 	score += 1
-
+	$HUD.update_score(score)
+	
 func _on_start_timer_timeout():
 	$FoodTimer.start()
 	$ScoreTimer.start()
 
 func _ready():
-	new_game()
-	
+	pass

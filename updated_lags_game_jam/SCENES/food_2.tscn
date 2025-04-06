@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tabs3"]
 size = Vector2(34, 37)
 
-[node name="RigidBody2D" type="RigidBody2D"]
+[node name="RigidBody2D" type="RigidBody2D" groups=["mobs"]]
 collision_mask = 0
 script = ExtResource("1_2ys1b")
 
